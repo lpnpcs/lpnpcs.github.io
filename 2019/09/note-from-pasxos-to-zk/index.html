@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="lpnpcs">
+    <meta name="description" content="lpnpcs的小地儿~">
+    
+    
+    
+    <link rel="next" href="https://lpnpcs.fun/2020/04/recent-read-book/" />
+    <link rel="canonical" href="https://lpnpcs.fun/2019/09/note-from-pasxos-to-zk/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            从Paxos到Zookeeper 分布式一致性原理与实践读书笔记 | 朝花夕拾
+        
+    </title>
+    <meta name="title" content="从Paxos到Zookeeper 分布式一致性原理与实践读书笔记 | 朝花夕拾">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lpnpcs.fun\/"
+    },
+    "articleSection" : "posts",
+    "name" : "从Paxos到Zookeeper 分布式一致性原理与实践读书笔记",
+    "headline" : "从Paxos到Zookeeper 分布式一致性原理与实践读书笔记",
+    "description" : "",
+    "inLanguage" : "zh-cn",
+    "author" : "lpnpcs",
+    "creator" : "lpnpcs",
+    "publisher": "lpnpcs",
+    "accountablePerson" : "lpnpcs",
+    "copyrightHolder" : "lpnpcs",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-10 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-10 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/lpnpcs.fun\/2019\/09\/note-from-pasxos-to-zk\/",
+    "wordCount" : "1004",
+    "keywords" : [ "书","经验", "朝花夕拾"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://lpnpcs.fun/">
+                    <span class="logo_text" >rm -rf /</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://lpnpcs.fun/">朝花夕拾</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">从Paxos到Zookeeper 分布式一致性原理与实践读书笔记</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://lpnpcs.fun/" rel="author">lpnpcs</a> 
+                <span class="post-time">
+                on <time datetime=2019-09-10 itemprop="datePublished">September 10, 2019</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://lpnpcs.fun/categories/note/"> note, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">1004 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="第一章-分布式架构">第一章 分布式架构</h2>
+<h3 id="分布式特点">分布式特点</h3>
+<p><code>分布性</code> <code>对等性</code> <code>并发性</code> <code>缺乏全局时钟</code> <code>故障总会发生</code></p>
+<h3 id="分布式环境问题">分布式环境问题</h3>
+<ul>
+<li>通信异常</li>
+<li>网络分区（可能产生“脑裂”）</li>
+<li>三态（成功、失败、超时）</li>
+<li>节点故障</li>
+</ul>
+<h3 id="acid">ACID</h3>
+<p><code>原子性</code> <code>一致性</code> <code>隔离性</code> <code>持久性</code></p>
+<h3 id="分布式事务">分布式事务</h3>
+<h4 id="cap">CAP</h4>
+<p>Consistency,Availability,Partition tolearnce</p>
+<p><img src="https://raw.githubusercontent.com/lpnpcs/MyPic/master/pico20190401200049.png" alt="CAP" loading="lazy" ></p>
+<h4 id="base">BASE</h4>
+<p>Basically Available, Soft state,Eventually consistent</p>
+<p>是对CAP一致性和可用性权衡结果。</p>
+<p><strong>最终一致性</strong> 包含 因果一致性 读己之所写 会话一致性 单调读一致性 单调写一致性</p>
+<h2 id="第二章-一致性协议">第二章 一致性协议</h2>
+<h3 id="2pc和3pc">2PC和3PC</h3>
+<p>协调者Coordinator 统一调度分布式节点，参与者Participant被调度。</p>
+<h4 id="2pc">2PC</h4>
+<p>绝大部分关系型数据库都是使用二阶段提交处理分布式事务。</p>
+<p><strong>阶段一  提交事务请求</strong>（投票阶段）</p>
+<ol>
+<li>事务询问</li>
+<li>执行事务</li>
+<li>各参与者向协调者反馈事务询问的响应</li>
+</ol>
+<p><strong>阶段二 执行事务提交</strong></p>
+<p>执行事务提交(第一阶段所有参与者回馈Yes)</p>
+<ol>
+<li>发送提交请求</li>
+<li>事务提交</li>
+<li>反馈事务提交结果</li>
+<li>完成事务</li>
+</ol>
+<p>中断事务(有一个参与者反馈No或者等待超时)</p>
+<ol>
+<li>发送回滚请求</li>
+<li>事务回滚</li>
+<li>反馈回滚结果</li>
+<li>中断事务</li>
+</ol>
+<p>二阶段提交将一个事务分成了投票和执行的阶段。</p>
+<p><img src="https://i.loli.net/2020/04/23/9SlXjmfo5Vnde7W.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/23/p2Gqd1i9aCk4KOs.png" alt=""></p>
+<p><strong>优缺点</strong></p>
+<p>协调者对于参与者有timeout机制，但是参与者对协调者没有timeout机制</p>
+<p>优点: 原理简单，实现方便</p>
+<p>缺点: 同步阻塞 单点问题 脑裂(第二阶段依然会出现不一致问题) 保守</p>
+<h4 id="3pc">3PC</h4>
+<p><strong>解决2PC的阻塞，引入了参与者超时机制和一个额外的PreCommit阶段,但还是可能造成数据不一致</strong></p>
+<p><img src="https://i.loli.net/2020/04/23/yE3kBOwz1efWsr2.png" alt="3PC" loading="lazy" ></p>
+<p>** 阶段一 CanCommit**</p>
+<ol>
+<li>事务询问</li>
+<li>各参与者向协调者反馈事务询问响应</li>
+</ol>
+<p>** 阶段二 PreCommit**</p>
+<ul>
+<li>
+<p>执行事务预提交(全yes)</p>
+<ol>
+<li>发送预提交请求</li>
+<li>事务预提交</li>
+<li>各参与者向协调者反馈事务执行响应</li>
+</ol>
+</li>
+<li>
+<p>中断事务(有一个no或者超时)</p>
+<ol>
+<li>发送中断请求</li>
+<li>中断事务</li>
+</ol>
+</li>
+</ul>
+<p>** 阶段三 doCommit**</p>
+<ul>
+<li>
+<p>执行提交</p>
+<ol>
+<li>发送提交请求</li>
+<li>事务提交</li>
+<li>反馈事务提交结果</li>
+<li>完成事务</li>
+</ol>
+</li>
+<li>
+<p>中断事务（有no或者超时）</p>
+<ol>
+<li>发送中断请求</li>
+<li>事务回滚</li>
+<li>反馈回滚结果</li>
+<li>中断事务</li>
+</ol>
+</li>
+</ul>
+<p>一旦进入阶段三， 可能会有两种故障</p>
+<ul>
+<li>协调者出问题</li>
+<li>协调者和参与者网络出问题</li>
+</ul>
+<p>这样参与者都在等待超时后继续事务提交,为什么选择提交事务而不是中断事务？因为此时提交事务成功的可能性非常非常大了，但仍有例外，例如：
+进入PreCommit后，协调者发出的是abort请求，如果只有一个Cohort收到并进行了abort操作，而其他对于系统状态未知的Cohort会根据3PC选择继续Commit，这仍然会导致不一致，不过这个概率就显然非常小了</p>
+<p><strong>优缺点</strong></p>
+<p>优点：较2PC降低了参与者阻塞范围，单点故障后继续一直</p>
+<p>缺点: 参与者收到preCommit后如果网络故障 参与者依然会事务提交，必然数据不一致</p>
+<h3 id="paxos算法httpslamportazurewebsitesnetpubspaxos-simplepdf"><a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf">Paxos算法</a></h3>
+<p>基于消息传递且有高度容错特性的一致性算法</p>
+<p>Proposer Acceptor Learner</p>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>lpnpcs </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lpnpcs.fun/2019/09/note-from-pasxos-to-zk/>https://lpnpcs.fun/2019/09/note-from-pasxos-to-zk/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://lpnpcs.fun/tags/%E4%B9%A6/">
+                    #书</a></span>
+            
+            <span class="tag"><a href="https://lpnpcs.fun/tags/%E7%BB%8F%E9%AA%8C/">
+                    #经验</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://lpnpcs.fun/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        
+        <a href="https://lpnpcs.fun/2020/04/recent-read-book/" class="next" rel="next" title="最近读过的书">最近读过的书&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://lpnpcs.fun/">lpnpcs</a>  </span>
+         
+
+         
+    </div>
+</footer>
+
+
+<script src="/js/main.js" defer ></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script> pangu.spacingPage();</script>
+
+        </div>
+    </body>
+</html>

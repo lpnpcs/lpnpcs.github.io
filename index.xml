@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on 朝花夕拾</title>
+    <link>https://lpnpcs.fun/</link>
+    <description>Recent content in Home on 朝花夕拾</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://lpnpcs.fun/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Posts</title>
+      <link>https://lpnpcs.fun/posts/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lpnpcs.fun/posts/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
