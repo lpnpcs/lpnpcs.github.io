@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>note on 朝花夕拾</title>
-    <link>https://lpnpcs.fun/categories/note/</link>
-    <description>Recent content in note on 朝花夕拾</description>
+    <title>读书笔记 on 朝花夕拾</title>
+    <link>https://lpnpcs.fun/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on 朝花夕拾</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://lpnpcs.fun/categories/note/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lpnpcs.fun/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,11 +21,11 @@
     </item>
     
     <item>
-      <title>最近读过的书</title>
-      <link>https://lpnpcs.fun/2020/04/recent-read-book/</link>
-      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <title>从Paxos到Zookeeper 分布式一致性原理与实践读书笔记</title>
+      <link>https://lpnpcs.fun/2019/09/note-from-pasxos-to-zk/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://lpnpcs.fun/2020/04/recent-read-book/</guid>
+      <guid>https://lpnpcs.fun/2019/09/note-from-pasxos-to-zk/</guid>
       <description></description>
     </item>
     

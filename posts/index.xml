@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 朝花夕拾</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lpnpcs.fun/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术提升之路</title>
+      <link>https://lpnpcs.fun/2020/05/road-to-technological-improvement/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lpnpcs.fun/2020/05/road-to-technological-improvement/</guid>
+      <description>它山之石可以攻玉 前言 工作这么多年了，对于后端技术有了一些积累，记录一下之前学习的，最近学习的，一些积累，有的是拾人牙慧，有的是自己的拙见。让</description>
+    </item>
     
     <item>
       <title>启功给你讲书法</title>

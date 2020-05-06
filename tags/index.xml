@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 朝花夕拾</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lpnpcs.fun/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>technology</title>
+      <link>https://lpnpcs.fun/tags/technology/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lpnpcs.fun/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>目录</title>
+      <link>https://lpnpcs.fun/tags/%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lpnpcs.fun/tags/%E7%9B%AE%E5%BD%95/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>书</title>
@@ -26,6 +44,15 @@
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lpnpcs.fun/tags/%E4%B9%A6%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>读书笔记</title>
+      <link>https://lpnpcs.fun/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lpnpcs.fun/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
@@ -53,15 +80,6 @@
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lpnpcs.fun/tags/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>目录</title>
-      <link>https://lpnpcs.fun/tags/%E7%9B%AE%E5%BD%95/</link>
-      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lpnpcs.fun/tags/%E7%9B%AE%E5%BD%95/</guid>
       <description></description>
     </item>
     
